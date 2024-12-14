@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coinacade - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+        font-family: 'Space Grotesk', sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: white;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .container {
+        width: 500px;
+        padding: 40px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 1px;
+        color: #222;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #888;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .login-form {
+        width: 100%;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        width: calc(100% - 27px); /* Adjust for the eye icon */
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .password-container {
+        position: relative;
+        width: 100%;
+      }
+
+      .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 0.9em;
+        margin-bottom: 15px;
+      }
+
+      button {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out, transform 0.2s;
+        font-family: 'Space Grotesk', sans-serif;
+        width: 100%;
+        text-align: center;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+      }
+
+      button:active {
+        background-color: #1e6091;
+        transform: scale(0.95);
+      }
+
+      .background {
+        display: none;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="{% static 'assets/images/logoIcon/logo.png'%}" alt="image" style="width:45%;">
+      <p>Welcome to Best Social Logs Market Place</p>
+    </div>
+    <div class="login-form">
+      <h2>Login to Your Account</h2>
+      <form id="login-form" action="{% url 'login_user' %}" method="POST">
+        {% csrf_token %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class="error-message">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <div class="password-container">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+          <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
+        </div>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+        <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+      </form>
+    </div>
+  </div>
+  <script>
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+      input.setAttribute('type', type);
+    }
+  </script>
+</body>
+</html>

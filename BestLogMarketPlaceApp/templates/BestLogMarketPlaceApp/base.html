@@ -1,0 +1,775 @@
+{% load static %}
+<!doctype html>
+<html lang="en" itemscope >
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Best Log Market Place</title>
+
+    <meta name="title" Content=" Best Log Market Place - Products ">
+    <meta name="description" content="Unknown - Buy all social account at the cheapest prices.">
+    <meta name="keywords" content="account selling platform">
+    <link rel="shortcut icon" href="{% static 'assets/images/logoIcon/favicon.png' %}" type="image/x-icon">
+
+    <link rel="apple-touch-icon" href="{% static 'assets/images/logoIcon/logo.png' %}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Unknown - Products ">
+
+    <meta itemprop="name" content=" - Products ">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="{% static 'assets/images/seo/65e3a942357ed1709418818.jpg' %}">
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/main2.css' %}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Unknown - Buy all social account at the cheapest prices.">
+    <meta property="og:description" content="Unknown- Buy all social account at the cheapest prices.">
+    <meta property="og:image" content="{% static 'assets/images/seo/65e3a942357ed1709418818.jpg' %}">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1180">
+    <meta property="og:image:height" content="600">
+    <meta property="og:url" content="products">
+    <link href="{% static 'assets/global/css/font-awesome/4.5.0/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/global/css/all.css' %}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="{% static 'assets/global/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/global/css/all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/global/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/global/css/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/odometer.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/custom.css' %}">
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+
+    <style>
+        .list-group-flush>.list-group-item:last-child {
+            border-bottom-width: thin !important;
+        }
+
+        #purchaseModal .modal-content {
+            border: 0 !important;
+        }
+
+        #purchaseModal .modal-body,
+        #purchaseModal .modal-body .text {
+            font-size: 0.875rem !important;
+        }
+
+        #purchaseModal .modal-footer .btn.w-100 {
+            border-radius: 0 !important;
+        }
+    </style>
+    <style>
+        .fixed-card {
+            z-index: 10;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .purchaseBtn {
+            float: right;
+            display: block;
+        }
+
+        @media screen and (max-width:992px) {
+            .navbar {
+                gap: 20px;
+            }
+            .navbar-brand {
+                flex: 1 1 calc(77% - 40px);
+            }
+            .search-box {
+                order: 4;
+                width: auto !important;
+                max-width: unset !important;
+                flex: 1 1 50%;
+            }
+            .category-nav {
+                width: 26%;
+                order: 3;
+                min-width: max-content;
+                text-align: left;
+            }
+        }
+
+        .navbar .search-box {
+            max-width: 100%;
+            position: relative;
+            top: 100%;
+            visibility: visible;
+            opacity: 1;
+            transition: all ease 250ms;
+            z-index: 9;
+            margin-top: 0;
+        }
+
+        @media screen and (max-width: 470px) {
+            .navbar {
+                gap: 15px;
+                column-gap: 10px;
+            }
+        }
+
+        @media screen and (max-width: 424px) {
+            .dropdown--menu {
+                width: 180px;
+                left: 0;
+                right: 0;
+            }
+        }
+
+        @media screen and (max-width: 374px) {
+            .navbar-brand {
+                flex: 1 1 calc(77% - 0px);
+            }
+            .search-text {
+                display: none;
+            }
+            .category-nav {
+                width: 10%;
+            }
+            .category-nav__button .icon {
+                margin-right: 0 !important;
+            }
+            .category-nav .arrow {
+                display: none;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/color.php?color=FF4001'%}">
+</head>
+
+<body>
+    <!--
+    <div class="preloader">
+        <div class="loader-p"></div>
+    </div>
+    -->
+    <div class="body-overlay"></div>
+    <div class="sidebar-overlay"></div>
+    <!--<a class="scroll-top"><i class="las la-long-arrow-alt-up"></i></a>-->
+
+    <div class="top-header d-none d-lg-block">
+        <div class="container">
+            <div class="top-header__inner flex-between">
+                <a class="navbar-brand logo" href="{% url 'home' %}">
+                    <img src="{% static 'assets/images/logoIcon/logo.png' %}" alt="image">
+                </a>
+                <div class="search-box style-two w-100">
+                    <form action="{% url 'home' %}" method="GET" class="search-form">
+                        <input type="text" class="form--control pill" name="q" placeholder="Search..." value="">
+                        <button type="submit" class="search-box__button">
+                            <span class="icon"><i class="bx bx-search"></i></span>
+                        </button>
+                    </form>
+                </div>
+    
+                <!-- Cart and User Actions (Desktop) -->
+                <div class="account-buttons flex-align gap-3">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout_user' %}" class="btn--account">
+                            <span class="icon fs-14 me-1"><i class="fas fa-sign-out-alt"></i></span> Logout
+                        </a>
+                        <a href="{% url 'dashboard' %}" class="btn btn--base btn--md">
+                            <span class="icon fs-14 me-1"><i class="fas fa-tachometer-alt"></i></span> Dashboard
+                        </a>
+                        <a href="{% url 'view_cart' %}" class="cart-icon">
+                            <i class="fas fa-shopping-cart" style="font-size:20px;"></i>
+                            <span class="cart-count">({{ cart_item_count|default:0 }})</span> Cart
+                        </a>
+                    {% else %}
+                        <a href="{% url 'login_user' %}" class="btn--account">
+                            <span class="icon fs-14 me-1"><i class="fas fa-sign-in-alt"></i></span> Login
+                        </a>
+                        <a href="{% url 'register' %}" class="btn btn--base btn--md">
+                            <span class="icon fs-14 me-1"><i class="fas fa-user-plus"></i></span> Register
+                        </a>
+                        <a href="{% url 'view_cart' %}" class="cart-icon">
+                            <i class="fas fa-shopping-cart" style="font-size:20px;"></i>
+                            <span class="cart-count">({{ cart_item_count|default:0  }})</span> Cart
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand logo d-lg-none d-block" href="#">
+                    <img src="{% static 'assets/images/logoIcon/logo.png' %}" alt="image">
+                </a>
+    
+                <!-- Mobile Search -->
+                <div class="search-box style-two w-100 d-lg-none d-block">
+                    <form action="{% url 'home' %}" method="GET" class="search-form">
+                        <input type="text" class="form--control pill exclude" name="q" placeholder="Search..." id="mobile-search" value="">
+                        <button type="submit" class="search-box__button">
+                            <span class="icon"><i class="bx bx-search"></i></span>
+                        </button>
+                    </form>
+                </div>
+    
+                <!-- Category and Cart Icon (Mobile) -->
+                <button class="navbar-toggler header-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span id="hiddenNav"><i class="lni lni-menu"></i></span>
+                </button>
+    
+                {% if user.is_authenticated %}
+                    <a href="{% url 'view_cart' %}" class="cart-icon">
+                        <i class="fas fa-shopping-cart" style="font-size:20px;"></i>
+                        <span class="cart-count">({{ cart_item_count|default:0 }})</span> Cart
+                    </a>
+                
+                {% else %}
+                    <a href="{% url 'view_cart' %}" class="cart-icon">
+                        <i class="fas fa-shopping-cart" style="font-size:20px;"></i>
+                        <span class="cart-count">({{ cart_item_count|default:0 }})</span> Cart
+                    </a>
+                {% endif %}
+                <!-- Mobile Menu -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-menu ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'p_about' %}">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Product</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                        </li>
+
+                        <!-- Mobile User Actions -->
+                        <li class="nav-item d-lg-none d-flex justify-content-between align-items-end">
+                            <div class="accounts-buttons d-flex align-items-center">
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'logout_user' %}" class="btn--account">
+                                        <span class="icon fs-14 me-1"><i class="fas fa-sign-out-alt"></i></span> Logout
+                                    </a>
+                                    <a href="{% url 'dashboard' %}" class="btn btn--base btn--md">
+                                        <span class="icon fs-14 me-1"><i class="fas fa-tachometer-alt"></i></span> Dashboard
+                                    </a>
+                                    <a href="{% url 'view_cart' %}" class="cart-icon">
+                                        <i class="fas fa-shopping-cart" style="font-size:20px;"></i>
+                                        <span class="cart-count">({{ cart_item_count|default:0 }})</span> Cart
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'login_user' %}" class="btn--account">
+                                        <span class="icon fs-14 me-1"><i class="fas fa-sign-in-alt"></i></span> Login
+                                    </a>
+                                    <a href="{% url 'register' %}" class="btn btn--base btn--md">
+                                        <span class="icon fs-14 me-1"><i class="fas fa-user-plus"></i></span> Register
+                                    </a>
+                                    <a href="{% url 'view_cart' %}" class="cart-icon">
+                                        <i class="fas fa-shopping-cart" style="font-size:20px;"></i>
+                                        <span class="cart-count">({{ cart_item_count|default:0 }})</span> Cart
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Optional: Flash Messages Below Header (reuses your existing style) -->
+        <div class="container mt-3">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </header>
+
+    
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <footer class="footer-area">
+        <div class="pb-60 pt-120">
+            <div class="container">
+                <div class="row justify-content-center gy-5">
+                    <div class="col-xl-4 col-sm-6 col-xsm-6">
+                        <div class="footer-item">
+                            <div class="footer-item__logo">
+                                <a href="{% url 'home' %}">   <img src="{% static 'assets/images/logoIcon/logo.png'%}"  alt="image" ></a>
+                            </div>
+                            <p class="footer-item__desc">At Best Log Market Places, we pride ourselves on offering a seamless and secure platform for buying and selling social media accounts.</p>
+                            <ul class="social-list">
+                                <li class="social-list__item">
+                                    <a href="#" class="social-list__link flex-center" target="">
+                                        <i class="fab fa-facebook"></i>                                    </a>
+                                </li>
+                                <li class="social-list__item">
+                                    <a href="#" class="social-list__link flex-center" target="">
+                                        <i class="fab fa-twitter"></i>                                    </a>
+                                </li>
+                                <li class="social-list__item">
+                                    <a href="https://www.instagram.com/bestlogsmarketplace?igsh=MWM5MTVsMGRsczVjcA==" class="social-list__link flex-center" target="_blank">
+                                        <i class="fab fa-instagram"></i>                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-sm-6 col-xsm-6">
+                        <div class="footer-item">
+                            <h5 class="footer-item__title">Useful Links</h5>
+                            <ul class="footer-menu">
+                                <li class="footer-menu__item"><a href="{% url 'home' %}" class="footer-menu__link">Product</a></li>
+                                <li class="footer-menu__item"><a href="{% url 'login_user' %}" class="footer-menu__link">Login</a></li>
+                                <li class="footer-menu__item"><a href="{% url 'register' %}" class="footer-menu__link">Register </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-xsm-6">
+                        <div class="footer-item">
+                            <h5 class="footer-item__title">Resources</h5>
+                            <ul class="footer-menu">
+                                <li class="footer-menu__item"><a href="{% url 'contact' %}" class="footer-menu__link">Contact Us </a></li>
+                                <!--<li class="footer-menu__item"><a href="" class="footer-menu__link">Cookie Policy </a></li>-->
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-xsm-6">
+                        <div class="footer-item">
+                            <h5 class="footer-item__title">Contact Us</h5>
+                            <ul class="footer-contact-menu">
+                                <li class="footer-contact-menu__item">
+                                    <div class="footer-contact-menu__item-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="footer-contact-menu__item-content">
+                                        <p>Nigeria</p>
+                                    </div>
+                                </li>
+                                <li class="footer-contact-menu__item">
+                                    <div class="footer-contact-menu__item-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="footer-contact-menu__item-content">
+                                        <p>1Bestlogsmarketplace@gmail.com</p>
+                                    </div>
+                                </li>
+                                <li class="footer-contact-menu__item">
+                                    <div class="footer-contact-menu__item-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="footer-contact-menu__item-content">
+                                        <p>[Protected]</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-footer py-3">
+            <div class="container">
+                <div class="row gy-3">
+                    <div class="col-sm-6">
+                        <div class="bottom-footer__text"> &copy; Copyright 2024 . All rights reserved.</div>
+                        <div class="bottom-footer__text"> Built By <b><i>Aaron Tech</i></b> : +2347061662905 </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="bottom-footer__menu d-flex align-items-end justify-content-end">
+                            <a href="{% url 'privacy_page' %}" class="bottom-footer__link">
+                                Privacy Policy
+                            </a>
+                            <a href="{% url 'rules_page' %}" class="bottom-footer__link">
+                                Rules
+                            </a>
+                            <a href="{% url 'terms_page' %}" class="bottom-footer__link">
+                                Terms and conditions
+                            </a>
+                            <!--<a href="" class="bottom-footer__link">-->
+                            <!--    FAQs-->
+                            <!--</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="{% static 'assets/global/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/global/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/templates/basic/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/templates/basic/js/owl.carousel.filter.js' %}"></script>
+    <script src="{% static 'assets/templates/basic/js/odometer.min.js' %}"></script>
+    <script src="{% static 'assets/templates/basic/js/viewport.jquery.js' %}"></script>
+    <script src="{% static 'assets/templates/basic/js/main.js' %}"></script>
+
+    <script>
+        (function($) {
+            "use strict";
+            $('.viewProductBtn').on('click', function() {
+                var modal = $('#viewModal');
+                modal.modal('show');
+            });
+        })(jQuery);
+    </script>
+    {% comment %} <script>
+        (function($) {
+            "use strict";
+            $('.search-form').on('submit', function(e) {
+                e.preventDefault();
+                var keyword = $(this).find('input[name=search]').val();
+                window.location.href = "index?search=" + keyword;
+            })
+        })(jQuery);
+    </script> {% endcomment %}
+
+
+    <link rel="stylesheet" href="assets/global/css/iziToast.min.css">
+    <script src="assets/global/js/iziToast.min.js"></script>
+
+    <script>
+        "use strict";
+
+        function notify(status, message) {
+            if (typeof message == 'string') {
+                iziToast[status]({
+                    message: message,
+                    position: "topRight"
+                });
+            } else {
+                $.each(message, function(i, val) {
+                    iziToast[status]({
+                        message: val,
+                        position: "topRight"
+                    });
+                });
+            }
+        }
+    </script>
+
+
+
+    <!--whatsapp button-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://chat.whatsapp.com/LNo2aIR83IdDtEr6wUpi52" class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
+    <style>
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 10px;
+            left: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+        }
+
+        .my-float {
+            margin-top: 16px;
+        }
+    </style>
+
+    <!--whatsapp button end-->
+
+    <!--telegram button-->
+    <input class='chat-menu hidden' id='offchat-menu' type='checkbox' />
+
+    <div class='sticky-button blink_me' id='sticky-button'>
+        <label for='offchat-menu'>
+				<svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+					<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+				</svg>
+			</label>
+    </div>
+
+
+
+    <div class='sticky-chat'>
+        <div class='chat-content'>
+            <div class='chat-header'>
+                <svg viewbox='0 0 32 32'>
+						<path d='M24,22a1,1,0,0,1-.64-.23L18.84,18H17A8,8,0,0,1,17,2h6a8,8,0,0,1,2,15.74V21a1,1,0,0,1-.58.91A1,1,0,0,1,24,22ZM17,4a6,6,0,0,0,0,12h2.2a1,1,0,0,1,.64.23L23,18.86V16.92a1,1,0,0,1,.86-1A6,6,0,0,0,23,4Z'/>
+						<rect height='2' width='2' x='19' y='9'/>
+						<rect height='2' width='2' x='14' y='9'/>
+						<rect height='2' width='2' x='24' y='9'/>
+						<path d='M8,30a1,1,0,0,1-.42-.09A1,1,0,0,1,7,29V25.74a8,8,0,0,1-1.28-15,1,1,0,1,1,.82,1.82,6,6,0,0,0,1.6,11.4,1,1,0,0,1,.86,1v1.94l3.16-2.63A1,1,0,0,1,12.8,24H15a5.94,5.94,0,0,0,4.29-1.82,1,1,0,0,1,1.44,1.4A8,8,0,0,1,15,26H13.16L8.64,29.77A1,1,0,0,1,8,30Z'/>
+
+					</svg>
+                <div class='title'> Customer Care <span>Best Log Market Place</span></div>
+            </div>
+            <div class='chat-text'>
+                <span>How can we help you today? </span>
+                <span class='typing'>
+						<svg viewbox='0 0 512 512'>
+							<circle cx='256' cy='256' r='48'/>
+							<circle cx='416' cy='256' r='48'/>
+							<circle cx='96' cy='256' r='48'/>
+						</svg>
+					</span>
+            </div>
+        </div>
+        <span><input class="schat" type="text" placeholder="Start chat... " autofocus></span>
+        <a class='chat-button' href="https://t.me/socialsalespro" rel='nofollow noreferrer' target='_blank'>
+				<svg viewBox='0 0 32 32' style="fill:#0091EA">
+					<path class='cls-1' d='M19.47,31a2,2,0,0,1-1.8-1.09l-4-7.57a1,1,0,0,1,1.77-.93l4,7.57L29,3.06,3,12.49l9.8,5.26,8.32-8.32a1,1,0,0,1,1.42,1.42l-8.85,8.84a1,1,0,0,1-1.17.18L2.09,14.33a2,2,0,0,1,.25-3.72L28.25,1.13a2,2,0,0,1,2.62,2.62L21.39,29.66A2,2,0,0,1,19.61,31Z'/>
+				</svg>
+			</a>
+    </div>
+
+    <style>
+        /* Telegram Sticky Chat Button Widget */
+
+        :root {
+            --warna-background: #4dc247;
+            --warna-bg-chat: #f0f5fb;
+            --warna-icon: #fff;
+            --warna-text: #505050;
+            --warna-text-alt: #989b9f;
+            --lebar-chatbox: 320px;
+        }
+
+        .sticky-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            right: 20px;
+            bottom: 10px;
+            width: 45px;
+            height: 45px;
+            border: 2px solid #0091EA;
+            background-color: #fefefe;
+            border-radius: 50%;
+            box-shadow: 1px 1px 5px 5px #0091EA;
+        }
+
+        .sticky-button a,
+        .sticky-button label {
+            display: flex;
+            align-items: center;
+            width: 55px;
+            height: 55px;
+            -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+        }
+
+        .sticky-button a svg,
+        .sticky-button label svg {
+            margin: auto;
+            fill: #0091EA
+        }
+
+        .sticky-button label svg.svg-2 {
+            display: none
+        }
+
+        .sticky-chat {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            width: 70%;
+            -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+            z-index: 21;
+            opacity: 0;
+            visibility: hidden;
+            line-height: normal
+        }
+
+        .sticky-chat .chat-content {
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .05);
+            overflow: hidden
+        }
+
+        .sticky-chat .chat-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #0091EA;
+            overflow: hidden
+        }
+
+        .sticky-chat .chat-header:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 70px;
+            height: 65px;
+            background: rgba(0, 0, 4, .000);
+            border-radius: 70px 0 5px 0;
+        }
+
+        .sticky-chat .chat-header svg {
+            width: 35px;
+            height: 35px;
+            flex: 0 0 auto;
+            fill: var(--warna-icon)
+        }
+
+        .sticky-chat .chat-header .title {
+            padding-left: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Roboto', sans-serif;
+            color: var(--warna-icon)
+        }
+
+        .sticky-chat .chat-header .title span {
+            font-size: 11px;
+            font-weight: 400;
+            display: block;
+            line-height: 1.58em;
+            margin: 0;
+        }
+
+        .sticky-chat .chat-text {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 25px 20px;
+            font-size: 12px;
+            color: var(--warna-text)
+        }
+
+        .sticky-chat .chat-text span {
+            display: inline-block;
+            margin-right: auto;
+            padding: 10px 10px 10px 20px;
+            background-color: var(--warna-bg-chat);
+            border-radius: 3px 15px 15px
+        }
+
+        .sticky-chat .chat-text span:after {
+            content: 'Just now';
+            display: inline-block;
+            position: relative;
+            bottom: -5px;
+            left: -4px;
+            margin-left: 2px;
+            font-size: 9px;
+            color: var(--warna-text-alt)
+        }
+
+        .sticky-chat .chat-text span.typing {
+            margin: 15px 0 0 auto;
+            padding: 10px 20px 10px 10px;
+            border-radius: 15px 3px 15px 15px
+        }
+
+        .sticky-chat .chat-text span.typing:after,
+        .chat-menu {
+            display: none
+        }
+
+        .sticky-chat .chat-text span.typing svg {
+            height: 14px;
+            fill: var(--warna-text-alt)
+        }
+
+        .sticky-chat .chat-button {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .05);
+            overflow: hidden;
+            font-size: 12px;
+            color: var(--warna-text)
+        }
+
+        .sticky-chat .chat-button svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--warna-text-alt);
+            margin-left: auto;
+            transform: rotate(40deg);
+            -webkit-transform: rotate(40deg)
+        }
+
+        .chat-menu:checked+.sticky-button label {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+
+        .chat-menu:checked+.sticky-button label svg.svg-1 {
+            display: none
+        }
+
+        .chat-menu:checked+.sticky-button label svg.svg-2 {
+            display: table-cell
+        }
+
+        .chat-menu:checked+.sticky-button+.sticky-chat {
+            bottom: 77px;
+            right: 81px;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .schat {
+            outline: none;
+            position: absolute;
+            bottom: 12px;
+            left: 15px;
+            border: none;
+            color: #0091EA;
+            font-weight: bold;
+        }
+
+        .blink_me {
+            animation: blinker 1.3s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <!--telgrapm button end-->
+   <script src="assets/templates/basic/js/popup.js"></script>
+    <!-- Bootstrap JS and dependencies (if not already included) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+</body>
+
+</html>

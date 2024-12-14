@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Deposit</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+        p {
+            font-size: 16px;
+            color: #666666;
+            text-align: center;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #999999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if transaction_status == 'approved' %}
+        <h1>Payment {{payment_status}} 🎉</h1>
+        <p>Your payment is has been {{payment_status}} and details sent to your email </p> </b>
+        <p style="color:red;" >please check spam folder, if you dont find product detail in email inbox </p>
+        <div class="button-container">
+            <a href="{% url 'home' %}" class="button">Back to Home</a>
+            <a href="https://mail.google.com/" class="button">View Order in Mail</a>
+        </div>
+        {% else %}
+        <h1>Payment {{payment_status}} </h1>
+        <p>Your payment was {{payment_status}} </p>
+        <div class="button-container">
+            <a href="{% url 'home' %}" class="button">Back to Home</a>
+            <a href="{% url 'view_cart' %}" class="button">Try Again</a>
+        </div>
+        {% endif %}
+    </div>
+    <div class="footer">
+        &copy; 2024 BestLogMarketPlaceApp. All rights reserved.
+    </div>
+</body>
+</html>

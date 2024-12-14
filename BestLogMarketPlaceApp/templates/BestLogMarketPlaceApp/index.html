@@ -1,0 +1,151 @@
+{% extends "BestLogMarketPlaceApp/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .title2 {
+        font-size: 24px;
+        font-weight: lighter;
+    }
+    .title2 .availability {
+        font-family: 'Arial', sans-serif;
+        font-weight: lighter;
+        font-size: 12px;
+    }
+    .title2 .availability .count {
+        color: white; /* Example color, change to desired color */
+    }
+</style>
+
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<div class="conc">
+    {% if no_categories_found %}
+        <h1 class="title2">No such category found
+            <a href="{% url 'home' %}" class="btn btn-primary btn-small" style="margin:10px; padding:10px;">View All Categories</a>
+        </h1>
+    {% else %}
+        {% for category in categories %}
+        <div class="category">
+            <h1 class="title2">{{ category.name }}
+                <span class="availability"><i>( Available:
+                    {% if category.total_products == 0 %}
+                    <span class="count text-danger"> Out Stock </span>
+                    {% else %}
+                    <span class="count">{{ category.total_products }} pcs. </span>
+                    {% endif %}
+                    ) </i>
+                </span>
+            </h1>
+        </div>
+
+        <!-- Loop through filtered products that are not related to 'approved' transactions -->
+        {% for product in category.filtered_products %}
+        {% if forloop.first %}
+            <div class="product-card">
+                <div class="product-image">
+                    {% if category.image %}
+                    <img src="{{ category.image.url }}" alt="{{ category.name }} Image">
+                    {% else %}
+                    <img src="{% static 'assets/images/product/default.png' %}" alt="Default Image">
+                    {% endif %}
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">{{ product.name }}</h3>
+                    <p class="product-price" style="font-size:15px;">₦{{ product.price }}</p>
+                    <p class="product-availability" style="font-size:15px;">Availability:
+                        <span>{{ category.total_products }} pcs.</span> <!-- Assuming you have an available stock attribute -->
+                    </p>
+                    <a href="{% url 'category_products' category.id %}" style="font-size:8px;" class="view-product-btn">
+                        <i class="fas fa-eye"></i>
+                        View More
+                    </a>
+                    {% if product.id not in cart_product_ids %}
+                    <a href="{% url 'add_to_cart' product.id %}" style="font-size:8px;" class="purchase-btn">
+                        <i class="fas fa-cart-plus"></i> Select
+                    </a>
+                    {% else %}
+                    <span style="color: green; border-radius:3px; border-style:solid; border-width:1px; border-color:green; float:right; padding-buttom:20px;">Added to Cart</span>
+                    {% endif %}
+                </div>
+                <div class="background-shape"></div>
+            </div>
+        {% endif %}
+        {% empty %}
+            <p>No products available for this category.</p>
+        {% endfor %}
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+
+
+    <section class="features py-120">
+        <div class="container">
+            <div class="section-heading">
+                <span class="section-heading__subtitle">Best Log Market Places
+                </span>
+                <h2 class="section-heading__title">Streamlining log purchases for your convenience.</h2>
+                <p class="section-heading__desc">In today's digital era, social media has become essential for individuals,
+                    businesses, and influencers to connect, engage, and expand their online presence. Yet, gaining a robust
+                    following and establishing credibility on these platforms can be both time-consuming and daunting.
+                    That's where No.1 Logs Marketplace comes in – your ultimate destination to leverage the influence of an
+                    established social media presence.</p>
+            </div>
+            <div class="row gy-4 justify-content-center feature-item-wrapper">
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="feature-item">
+                        <span class="feature-item__number">1</span>
+                        <span class="feature-item__icon flex-center">
+                            <i class="fas fa-list"></i>
+                        </span>
+                        <h5 class="feature-item__title">Immediate credibility</h5>
+                        <p class="feature-item__desc">Acquiring a social media account with an established following
+                            instantly enhances your online credibility. Whether you're an aspiring influencer, a business
+                            aiming to broaden your reach, or an individual seeking to strengthen your personal brand, a
+                            pre-built social media account offers a reliable springboard for success.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="feature-item">
+                        <span class="feature-item__number">2</span>
+                        <span class="feature-item__icon flex-center">
+                            <i class="fas fa-comment"></i>
+                        </span>
+                        <h5 class="feature-item__title">Reduce time and effort</h5>
+                        <p class="feature-item__desc">Growing a substantial social media following demands consistent
+                            effort, time, and resources. Purchasing a pre-existing account allows you to skip the lengthy
+                            process of organic growth and begin engaging with your audience and sharing your message
+                            immediately.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="feature-item">
+                        <span class="feature-item__number">3</span>
+                        <span class="feature-item__icon flex-center">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <h5 class="feature-item__title">Audience Specific</h5>
+                        <p class="feature-item__desc">Many social media accounts available for purchase come with a
+                            pre-existing audience that matches your target demographic. This allows you to connect with
+                            potential customers or followers who are already interested in your niche, thereby saving you
+                            the time and effort needed to build an audience from the ground up.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="feature-item">
+                        <span class="feature-item__number">4</span>
+                        <span class="feature-item__icon flex-center">
+                            <i class="fas fa-shield-alt"></i>
+                        </span>
+                        <h5 class="feature-item__title">Expansion with a strategic approach</h5>
+                        <p class="feature-item__desc">Businesses and brands aiming to enter new markets or demographics can
+                            gain a strategic edge by purchasing social media accounts. Accessing an established audience
+                            enables rapid market penetration and enhances brand visibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

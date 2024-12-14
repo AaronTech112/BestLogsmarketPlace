@@ -1,0 +1,286 @@
+.product-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 80%;
+    height: 3cm;
+    max-width: 900px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    margin-left: 6cm;
+    margin-top: 20px;
+
+}
+
+
+
+.product-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.product-info {
+    margin-left: 20px;
+    flex: 1;
+}
+
+.product-title {
+    font-size: 10px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-price {
+    font-size: 10px;
+    color: #28a745;
+    margin: 10px 0;
+}
+
+.product-availability {
+    font-size: 10px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.product-availability span {
+    color: #28a745;
+}
+
+.view-product-btn {
+    background-color: #112942;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-size: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    margin-top: -1.7cm;
+    width: 3.6cm;
+    height: 1cm;
+    margin-left: 70%;
+    background: linear-gradient(135deg, #1e90ff 0%, #e80027 140%);
+}
+
+.view-product-btn:hover {
+    background-color: #161716e0;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+.purchase-btn {
+    background-color: #112942;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-size: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    margin-top: -1.7cm;
+    width: 3.6cm;
+    height: 1cm;
+    margin-left: 54%;
+    background: linear-gradient(135deg, #1e90ff 0%, #e80027 140%);
+}
+
+.purchase-btn:hover {
+    background-color: #161716e0;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+.background-shape {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #0065c9 20%, #e80027 70%);
+    border-radius: 70%;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .background-shape {
+        top: 90px;
+        right: 0px;
+    }
+
+    .product-card {
+        width: 90%;
+        /* Adjusted width for smaller screens */
+        margin-left: 10px;
+
+    }
+
+    .product-image img {
+        width: 60px;
+        /* Reduced image size for smaller screens */
+        height: 60px;
+    }
+
+    .product-title {
+        font-size: 10px;
+        /* Slightly reduced font size for title on smaller screens */
+    }
+
+    .product-price {
+        font-size: 12px;
+        /* Slightly reduced font size for price on smaller screens */
+    }
+
+    .view-product-btn {
+        height: 1cm;
+        margin-top: -2cm;
+        font-size: 55%;
+        margin-left: 30%;
+        display: block;
+        width: 20%;
+        background-color: rgba(0, 0, 0, 0.963);
+
+    }
+
+    .purchase-btn {
+        height: 1cm;
+        margin-top: -2cm;
+        font-size: 55%;
+        float: left;
+        display: block;
+        width: 20%;
+        background-color: rgba(0, 0, 0, 0.963);
+
+    }
+
+    button i {
+        font-size: 1.2em;
+        /* Slightly larger than the text */
+        margin-right: 0.5em;
+        /* Space between icon and text */
+    }
+
+
+}
+
+.title2 {
+    text-align: center;
+    background-color: #112942;
+    color: white;
+    font-size: 20px;
+    margin-top: 2cm;
+    width: auto;
+
+}
+
+
+
+
+
+
+/* POP UP */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    z-index: 9;
+}
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.popup h2 {
+    margin-top: 0;
+}
+
+.popup p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.popup .instructions {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.popup .instructions p {
+    margin: 5px 0;
+}
+
+.popup label {
+    display: block;
+    margin-top: 10px;
+}
+
+.popup input[type="file"] {
+    display: block;
+    margin: 10px 0;
+}
+
+.popup button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup button:hover {
+    background-color: #45a049;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.waiting-popup {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.waiting-popup h2 {
+    margin-top: 0;
+    color: #28a745;
+    font-family: 'Roboto', sans-serif;
+}
+
+.waiting-popup p {
+    font-size: 14px;
+}

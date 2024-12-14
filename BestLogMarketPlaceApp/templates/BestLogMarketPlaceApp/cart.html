@@ -1,0 +1,41 @@
+{% extends "BestLogMarketPlaceApp/base.html" %}
+{% load static %}
+ 
+{% block content %}
+<!-- Shopping Cart -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Shopping Cart</h3>
+            <ul class="list-group">
+                {% for item in cart.items.all %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ item.product.category.image.url }}" alt="{{ item.product.name }}" class="img-thumbnail" style="width:20%;">
+                        <div class="ms-1">
+                            <h5 style="font-size:11px;">{{ item.product.name }}</h5>
+                            <p>Price: ₦{{ item.product.price }}</p>
+                            <p>Quantity: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                    <div >
+                        <a href="{% url 'remove_from_cart' item.id %}"style="font-size:10px;" class="btn btn-danger">Remove</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Order Summary</h3>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>Total Price:</span>
+                    <strong>₦{{ cart.total_price }}</strong>
+                </li>
+            </ul>
+            <a href="{% url 'payment_page' %}" class="btn btn-success btn-block mt-3">Proceed to Checkout</a>
+        </div>
+    </div>
+</div>
+<!-- End Shopping Cart -->
+{% endblock content %}

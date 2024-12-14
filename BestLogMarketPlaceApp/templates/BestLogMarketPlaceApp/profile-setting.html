@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+    <link rel="stylesheet" href="{% static 'assets/templates/basic/css/dashboard.css'%}">
+
+
+	<title>Social Sale</title>
+</head>
+<body>
+<!-- SIDEBAR -->
+<section id="sidebar" class="hide">
+    <a href="#" class="brand">
+        <i class='bx bxs-smile'></i>
+        <span class="text">{{ request.user.username }}</span>
+    </a>
+    <ul class="side-menu top">
+        <li class="active">
+            <a href="{% url 'dashboard' %}">
+                <i class='bx bxs-dashboard'></i>
+                <span class="text">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'payment_history' %}">
+                <i class='bx bxs-dollar-circle'></i>
+                <span class="text">Payment History</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'orders' %}">
+                <i class='bx bxs-shopping-bag-alt'></i>
+                <span class="text">Orders</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'home' %}">
+                <i class='bx bxs-shopping-bag-alt'></i>
+                <span class="text">Products</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="side-menu">
+        <li>
+            <a href="{% url 'profile_page' %}">
+                <i class='bx bxs-cog'></i>
+                <span class="text">Profile Settings</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'logout_user' %}" class="logout">
+                <i class='bx bxs-log-out-circle'></i>
+                <span class="text">Logout</span>
+            </a>
+        </li>
+    </ul>
+</section>
+<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+		
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">3</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="{% static 'assets/images/logoIcon/logo.png'%}">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="{% url 'dashboard' %}">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="#">Profile Settings</a>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+
+            <div class="profile-form-container">
+                <div class="profile-card">
+                    <div class="profile-card-header">
+                        <h5 class="profile-card-title text-center">Profile Information</h5>
+                    </div>
+                    <div class="profile-card-body">
+                        <form class="profile-form" action="" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							{% if form.errors %}
+								<p style="color:red; font-size:15px;">Invalid Details</p>
+								<span style="color:red; font-size:15px;">{{ form.errors }}</span>
+							{% endif %}
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label class="form-label required" for="usernamename">User name</label>
+                                    <input type="text" class="form-control" name="username" value="{{ form.username.value|default_if_none:request.user.username }}" required id="firstname">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label class="form-label required" for="first_name">First Name</label>
+                                    <input type="text" class="form-control" name="first_name" value="{{ form.first_name.value|default_if_none:request.user.first_name }}" required id="lastname">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label class="form-label required" for="last_name">Last Name</label>
+                                    <input type="text" class="form-control" name="last_name" value="{{ form.last_name.value|default_if_none:request.user.last_name }}" required id="lastname">
+                                </div>
+                                <div class="form-group col-sm-6">
+									<label for="email">Email</label>
+									<input type="email" id="email" name="email" class="form-control" value="{{ form.email.value|default_if_none:request.user.email }}">
+                                </div>
+                                <div class="form-group col-sm-6">
+									<label for="phoneNumber">Phone Number</label>
+									<input type="text" id="phoneNumber" class="form-control" name="phone_number" value="{{ form.phone_number.value|default_if_none:request.user.phone_number}}">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-submit w-100">Update Profile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="{% static 'assets/templates/basic/js/script.js'%}"></script>
+</body>

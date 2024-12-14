@@ -1,0 +1,14 @@
+<html>
+<body>
+    <h2>Thank you for your purchase!</h2>
+    <p>Below are the details of the products you bought:</p>
+    <ul>
+        {% for item in cart_items %}
+        <li>{{ item.product.name }}: <a href="{{ item.product.account_details }}">{{ item.product.account_details }}</a></li>
+        ---------------------------------------
+        {% endfor %}
+    </ul>
+    <p>Best regards,</p>
+    <p>The BestLog Marketplace Team</p>
+</body>
+</html>

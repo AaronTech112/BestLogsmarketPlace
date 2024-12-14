@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        h2,
+        h4 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h4 {
+            color: #777;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .instructions h3 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .instructions p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .waiting-popup {
+            display: none;
+            text-align: center;
+            color: #fff;
+        }
+
+        .waiting-popup h2 {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup">
+            <button class="close-popup" id="close-popup">&times;</button>
+            <h2>Pay with Flutterwave </h2>
+            <p>Make Payemnt of {{cart.total_price}}</p> <br>
+            <p style="color: red; font-style:bold; ">Please Enter Vaild Email !!.. <br> Product Login Details will be sent your email</p>
+            <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
+                {% csrf_token %}
+                <input type="hidden" name="public_key" value="FLWPUBK-586b15c349e0e506f75e590e6b50c01c-X" />
+                <input type="hidden" name="tx_ref" value="bitethtx-019203" />
+                <input type="hidden" name="amount" value="{{cart.total_price}}" />
+                <input type="hidden" name="currency" value="NGN" />
+
+                <!-- We'll dynamically generate the redirect_url to include the email -->
+                <input type="hidden" name="redirect_url" id="redirect_url" value="https://www.bestlogsmarketplace.com.ng/pending" />
+
+                <label for="name">Name</label>
+                <input type="text" name="customer[name]" id="name" />
+
+                <label for="email">Email</label>
+                <input type="email" name="customer[email]" id="email" oninput="updateRedirectUrl()" />
+
+                <!-- Add the configuration parameters -->
+                <input type="hidden" name="session_duration" value="1440" /> <!-- Maximum timeout in minutes -->
+                <input type="hidden" name="max_retry_attempt" value="5" /> <!-- Maximum retry attempts -->
+
+                <button type="submit" id="pay-now-btn">Submit Payment</button>
+            </form>
+
+            <script>
+            function updateRedirectUrl() {
+                const email = document.getElementById('email').value;
+                const redirectUrl = `https://www.bestlogsmarketplace.com.ng/pending?email=${encodeURIComponent(email)}`;
+                document.getElementById('redirect_url').value = redirectUrl;
+            }
+            </script>
+
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
