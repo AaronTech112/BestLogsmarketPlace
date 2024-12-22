@@ -146,8 +146,8 @@
                 <input type="email" name="customer[email]" id="email" oninput="updateRedirectUrl()" />
 
                 <!-- Add the configuration parameters -->
-                <input type="hidden" name="session_duration" value="1440" /> <!-- Maximum timeout in minutes -->
-                <input type="hidden" name="max_retry_attempt" value="5" /> <!-- Maximum retry attempts -->
+                <input type="hidden" name="configurations[session_duration]" value="1440" /> <!-- Maximum timeout in minutes -->
+                <input type="hidden" name="configurations[max_retry_attempt]" value="5" /> <!-- Maximum retry attempts -->
 
                 <button type="submit" id="pay-now-btn">Submit Payment</button>
             </form>
